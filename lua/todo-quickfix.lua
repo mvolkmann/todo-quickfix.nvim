@@ -3,7 +3,8 @@ local M = {}
 -- TODO: I hope this works!
 M.todo = function()
   local parser = require("nvim-treesitter.parsers").get_parser()
-  local query_string = '(comment) @comment (#match? @comment "TODO")'
+  -- local query_string = '(comment) @comment (#match? @comment "TODO")'
+  local query_string = '(comment) @comment'
   local ok query = pcall(
     vim.treesitter.query.parse(parser:lang(), query_string)
   )
