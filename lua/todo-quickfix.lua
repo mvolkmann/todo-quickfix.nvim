@@ -1,15 +1,17 @@
 local M = {}
 
+-- TODO: I hope this works!
 M.todo = function()
   local parser = require("nvim-treesitter.parsers").get_parser()
   local query_string = '(comment) @comment (#match? @comment "TODO")'
   local ok query = pcall(
-    vim.treesitter.query.parse_query(parser:lang(), query_string)
+    vim.treesitter.query.parse(parser:lang(), query_string)
   )
   if not ok then return end
 
   vim.pretty_print(query)
 
+  -- Will it find comments containing TODO?
   local qf_list = {}
   local tree = parser:parse()[1]
   -- 0 here refers to the current buffer.
