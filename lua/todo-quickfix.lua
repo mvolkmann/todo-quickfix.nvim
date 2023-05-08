@@ -1,8 +1,5 @@
-local M = {}
-
 -- This populates the quickfix list with lines that contain TODO comments.
 -- See the YouTube video https://www.youtube.com/watch?v=PdaObkGazoU.
--- M.todo = function()
 local function todo_qf()
   local parser = require("nvim-treesitter.parsers").get_parser()
   local query_string = '((comment) @comment (#match? @comment "TODO"))'
@@ -33,11 +30,8 @@ local function todo_qf()
   vim.cmd.copen() -- opens the quickfix list
 end
 
--- vim.api.nvim_create_user_command("TodoQF", M.todo, {})
-M.setup = function()
-  vim.api.nvim_create_user_command("TodoQF", todo_qf, {})
-end
-
--- M.todo()
-
-return M
+return {
+  setup = function()
+    vim.api.nvim_create_user_command("TodoQF", todo_qf, {})
+  end
+}
