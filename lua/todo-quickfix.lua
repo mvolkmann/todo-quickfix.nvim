@@ -1,4 +1,4 @@
--- local M = {}
+local M = {}
 
 -- This populates the quickfix list with lines that contain TODO comments.
 -- See the YouTube video https://www.youtube.com/watch?v=PdaObkGazoU.
@@ -34,8 +34,10 @@ local function todo_qf()
 end
 
 -- vim.api.nvim_create_user_command("TodoQF", M.todo, {})
-vim.api.nvim_create_user_command("TodoQF", todo_qf, {})
+M.setup = function()
+  vim.api.nvim_create_user_command("TodoQF", todo_qf, {})
+end
 
 -- M.todo()
 
--- return M
+return M
