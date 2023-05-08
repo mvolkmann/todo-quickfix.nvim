@@ -20,7 +20,7 @@ local function todo_qf()
   local tree = parser:parse()[1]
   -- 0 here refers to the current buffer.
   for _, n in query:iter_captures(tree:root(), 0) do
-    local text = vim.treesitter.query.get_node_text(n, 0)
+    local text = vim.treesitter.get_node_text(n, 0)
     local lnum, col = n:range()
     table.insert(qf_list, {
       bufnr = vim.api.nvim_get_current_buf(),
