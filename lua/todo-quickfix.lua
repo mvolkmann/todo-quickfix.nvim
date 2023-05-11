@@ -3,7 +3,10 @@ local M = {}
 -- This populates the quickfix list with lines that contain TODO comments.
 -- See the YouTube video https://www.youtube.com/watch?v=PdaObkGazoU.
 M.todo_qf = function()
+  local M = require("nvim-treesitter.parsers")
+  print("M =", M)
   local parser = require("nvim-treesitter.parsers").get_parser()
+  print("parser =", parser)
   local query_string = '((comment) @comment (#match? @comment "TODO"))'
 
   -- Calling parse in a pcall handles the case where
