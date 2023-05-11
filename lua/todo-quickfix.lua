@@ -4,7 +4,7 @@ local M = {}
 -- See the YouTube video https://www.youtube.com/watch?v=PdaObkGazoU.
 M.todo_qf = function()
   local M = require("nvim-treesitter.parsers")
-  print("M =", M)
+  vim.print(M)
   local parser = require("nvim-treesitter.parsers").get_parser()
   print("parser =", parser)
   local query_string = '((comment) @comment (#match? @comment "TODO"))'
