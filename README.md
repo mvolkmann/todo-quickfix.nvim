@@ -21,4 +21,3 @@ return {
 ```
 
 Open a source file containing TODO comments and enter `:TodoQF`.
-
